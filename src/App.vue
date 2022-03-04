@@ -10,7 +10,7 @@
     <Accueil v-if="pageMenu == 'accueil'"/>
     <Apropos v-if="pageMenu == 'apropos'"/>
     <MentionLegale v-if="pageMenu == 'mentionLegale'"/>
-    <Formulaire v-if="pageMenu == 'formulaire'"/>
+    <Formulaire v-if="pageMenu == 'Form'"/>
     <Connexion v-if="pageMenu == 'connexion'"/>
     <Footer />
   </div>
@@ -43,7 +43,6 @@ export default {
   data(){
     return{
       pageMenu : 'accueil',
-      plop :""
     }
   },
 
@@ -56,27 +55,32 @@ export default {
       say: function (message) {
         this.pageMenu = (message)
       },
-  },
+   /*    methods:{
+    submit: function (submitFormValid) {
+      if (submitFormValid){
+        this.skills!="" && this.expe!="" && this.formation!=""
+        this.pageMenu='Form'
+        return true;
+      }else{
+        alert('formulaire invalide')
+      } */
+        
 
 //Surveille si la valeur change
   watch: {
       pseudo: function(nouveauPseudo){
-        // if(this.pseudo!="") ==> if(this.pseudo)
+        //if(this.pseudo!="") ==> if(this.pseudo)
         if(nouveauPseudo!=""){
-          this.pageMenu='formulaire'
+          this.pageMenu='Formulaire'
         }
+      }
     }
   }
 }
+/*   watch: {
+    form: function(nouveauProfil){
+      if(this.skills){
+        this.skills = ""
+      } */
+    
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
